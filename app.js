@@ -25,15 +25,15 @@ const connection = new Sequelize('postgres://api-college-app-main-db-0697db994aa
 // const connection = new Sequelize(databaseName, userName,
 //     userPassword, { dialect: dialect });
 
-connection.authenticate()
-    .then(() => {
-        console.log('Nice! Database synced...');
-        app.listen(PORT, () => {
-            console.log(`Server running on http://localhost:${PORT}/api`);
-        });
-    })
-    .catch((error) => { console.error('Error connecting' + error); });
+// connection.authenticate()
+//     .then(() => {
+//         console.log('Nice! Database synced...');
+//         app.listen(PORT, () => {
+//             console.log(`Server running on http://localhost:${PORT}/api`);
+//         });
+//     })
+//     .catch((error) => { console.error('Error connecting' + error); });
 
-// app.listen(PORT, () => {
-//     console.log(`App listening at http://localhost:${PORT}`);
-// });
+app.listen(PORT, () => {
+    console.log(`App listening at http://localhost:${PORT}`);
+});
