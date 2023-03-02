@@ -13,7 +13,7 @@ app.use('/api', teacherRouter);
 app.use('/api', levelRouter)
 
 // port
-const PORT = process.env.PORT || 5000;
+const port = process.env.PORT || 5000;
 
 //** */ To connecto with database and run the  server **//
 // All required for connection to database
@@ -24,13 +24,15 @@ const dialect = config.development.dialect;
 const connection = new Sequelize(databaseName, userName,
     userPassword, { dialect: dialect });
 
-connection.authenticate()
-    .then(() => {
-        console.log('Nice! Database synced...');
-        app.listen(PORT, () => {
-            console.log(`Server running on http://localhost:${PORT}/api`);
-        });
-    })
-    .catch((error) => { console.error('Error connecting' + error); });
+// connection.authenticate()
+//     .then(() => {
+//         console.log('Nice! Database synced...');
+//         app.listen(PORT, () => {
+//             console.log(`Server running on http://localhost:${PORT}/api`);
+//         });
+//     })
+//     .catch((error) => { console.error('Error connecting' + error); });
 
-
+app.listen(port, () => {
+    console.log(`App listening at http://localhost:${port}`);
+});
