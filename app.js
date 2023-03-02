@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
-const Sequelize = require('sequelize');
-const config = require('./config/config.json');
+// const Sequelize = require('sequelize');
+// const config = require('./config/config.json');
 
 // to user routes 
 const teacherRouter = require('./routes/teacher_router');
@@ -17,12 +17,12 @@ const port = process.env.PORT || 5000;
 
 //** */ To connecto with database and run the  server **//
 // All required for connection to database
-const databaseName = config.development.database;
-const userName = config.development.username;
-const userPassword = config.development.password;
-const dialect = config.development.dialect;
-const connection = new Sequelize(databaseName, userName,
-    userPassword, { dialect: dialect });
+// const databaseName = config.development.database;
+// const userName = config.development.username;
+// const userPassword = config.development.password;
+// const dialect = config.development.dialect;
+// const connection = new Sequelize(databaseName, userName,
+//     userPassword, { dialect: dialect });
 
 // connection.authenticate()
 //     .then(() => {
