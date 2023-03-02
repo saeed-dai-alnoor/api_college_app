@@ -55,7 +55,7 @@ const getLevels = async (_req, res) => {
             res.send({
                 success: 1,
                 message: 'Get level successfuly done!',
-                data: levels
+                data: levels.length == 0? 'This table is empty!': levels
             });
         })
         .catch((error) => {

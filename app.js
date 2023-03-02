@@ -1,7 +1,6 @@
 const express = require('express');
 const app = express();
 const Sequelize = require('sequelize');
-// const config = require('./config/config.json');
 
 // to user routes 
 const teacherRouter = require('./routes/teacher_router');
@@ -14,17 +13,10 @@ app.use('/api', levelRouter)
 
 // PORT
 const PORT = process.env.PORT || 5000;
-const connection = new Sequelize('postgres://api-college-app-main-db-0697db994aab86e91:PzvQsTqDvJScJuagu229H6kFmGjNs6@user-prod-us-east-2-1.cluster-cfi5vnucvv3w.us-east-2.rds.amazonaws.com:5432/api-college-app-main-db-0697db994aab86e91')
 
-//** */ To connecto with database and run the  server **//
-// All required for connection to database
-// const databaseName = config.development.database;
-// const userName = config.development.username;
-// const userPassword = config.development.password;
-// const dialect = config.development.dialect;
-// const connection = new Sequelize(databaseName, userName,
-//     userPassword, { dialect: dialect });
 
+//** */ To connecto with database and run the  server locally **//
+// const connection = new Sequelize('postgres://api-college-app-main-db-0697db994aab86e91:PzvQsTqDvJScJuagu229H6kFmGjNs6@user-prod-us-east-2-1.cluster-cfi5vnucvv3w.us-east-2.rds.amazonaws.com:5432/api-college-app-main-db-0697db994aab86e91');
 // connection.authenticate()
 //     .then(() => {
 //         console.log('Nice! Database synced...');
@@ -33,7 +25,7 @@ const connection = new Sequelize('postgres://api-college-app-main-db-0697db994aa
 //         });
 //     })
 //     .catch((error) => { console.error('Error connecting' + error); });
-
+// ** Online server ** //
 app.listen(PORT, () => {
     console.log(`App listening at http://localhost:${PORT}`);
 });

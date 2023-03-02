@@ -9,7 +9,6 @@ module.exports = {
       },
       levelName: {
         type: Sequelize.STRING,
-        unique: true
       }
     });
   },

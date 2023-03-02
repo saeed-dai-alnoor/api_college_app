@@ -115,7 +115,7 @@ const getTeachers = async (_req, res) => {
             res.send({
                 success: 1,
                 message: 'Get teacher successfuly done!',
-                data: teachers
+                data: teachers.length == 0 ? 'This table is empty!' : teachers
             });
         })
         .catch((error) => {
