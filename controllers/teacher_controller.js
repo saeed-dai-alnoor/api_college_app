@@ -2,8 +2,8 @@ const TeacherController = require('../models');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 
-// ** Teacher login
-const teacherLogin = async (req, res) => {
+// ** Login teacher
+const loginTeacher = async (req, res) => {
     const body = req.body;
     await TeacherController.Teacher.findOne({
         where: { phone: body.phone }
@@ -104,7 +104,7 @@ const getTeacherById = async (req, res) => {
         .catch((error) => {
             res.send({
                 success: 0,
-                message: error.errors[0].message
+                message: error.message
             });
         });
 }
@@ -121,7 +121,7 @@ const getTeachers = async (_req, res) => {
         .catch((error) => {
             res.send({
                 success: 0,
-                message: error.errors[0].message
+                message: error.message
             });
         });
 }
@@ -178,13 +178,13 @@ const deleteTeacher = async (req, res) => {
         .catch((error) => {
             res.send({
                 success: 0,
-                message: error.errors[0].message
+                message: error.message
             });
         });
 }
 
 module.exports = {
-    teacherLogin,
+    loginTeacher,
     createTeachers,
     getTeachers,
     getTeacherById,

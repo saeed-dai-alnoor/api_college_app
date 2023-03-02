@@ -24,7 +24,7 @@ const createLevel = async (req, res) => {
         });
 }
 // ** (R) Read Operation
-// Read level by id for all teachers
+// Read level by id
 const getLevelById = async (req, res) => {
     await LevelController.Level.findByPk(req.params.levelId)
         .then((level) => {
@@ -44,11 +44,11 @@ const getLevelById = async (req, res) => {
         .catch((error) => {
             res.send({
                 success: 0,
-                message: error.errors[0].message
+                message: error.message
             });
         });
 }
-// Read all teachers
+// Read all levels
 const getLevels = async (_req, res) => {
     await LevelController.Level.findAll()
         .then((levels) => {
@@ -61,7 +61,7 @@ const getLevels = async (_req, res) => {
         .catch((error) => {
             res.send({
                 success: 0,
-                message: error.errors[0].message
+                message: error.message
             });
         });
 }
@@ -97,7 +97,7 @@ const deleteLevel = async (req, res) => {
     const body = req.body;
     await LevelController.Level.destroy({
         where: {
-            teacherId: body.levelId
+            levelId: body.levelId
         }
     })
         .then((level) => {
@@ -116,7 +116,7 @@ const deleteLevel = async (req, res) => {
         .catch((error) => {
             res.send({
                 success: 0,
-                message: error.errors[0].message
+                message: error.message
             });
         });
 }

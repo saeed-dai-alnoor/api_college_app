@@ -4,7 +4,7 @@ const checkToken = require('../auth/token_vaildation');
 
 router.post('/create-level', checkToken, LevelRouter.createLevel);
 router.get('/levels', checkToken, LevelRouter.getLevels);
-router.get('/levels/:levelId', checkToken, LevelRouter.getLevels);
+router.get('/levels/:levelId', checkToken, LevelRouter.getLevelById);
 router.put('/update-level', checkToken, LevelRouter.updateLevel);
 router.delete('/delete-level', checkToken, LevelRouter.deleteLevel);
 module.exports = router;
