@@ -24,7 +24,7 @@ const PORT = process.env.PORT || 5000;
 //             console.log(`Server running on http://localhost:${PORT}/api`);
 //         });
 //     })
-//     .catch((error) => { console.error('Error connecting' + error); });
+// .catch ((error) => { console.error('Error connecting' + error); });
 // ** Online server ** //
 app.listen(PORT, () => {
     console.log(`App listening at http://localhost:${PORT}`);

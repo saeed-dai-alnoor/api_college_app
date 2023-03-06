@@ -29,6 +29,10 @@ module.exports = (sequelize, DataTypes) => {
         }
       }
     },
+    teacherLog: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
     phone: {
       type: DataTypes.STRING,
       allowNull: false,

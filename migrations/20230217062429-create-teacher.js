@@ -11,6 +11,7 @@ module.exports = {
         type: Sequelize.STRING,
         unique: true
       },
+      teacherLog: Sequelize.STRING,
       phone: {
         type: Sequelize.STRING,
         unique: true

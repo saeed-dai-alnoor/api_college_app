@@ -65,6 +65,7 @@ const createTeachers = async (req, res) => {
     await TeacherController.Teacher.create({
         teacherId: body.teacherId,
         teacherName: body.teacherName,
+        teacherLog: body.password,
         phone: body.phone,
         password: bcrypt.hashSync(body.password, saltRounds),
         isAdmin: body.isAdmin
