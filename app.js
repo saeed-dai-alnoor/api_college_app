@@ -1,14 +1,14 @@
-const express = require('express');
+import express, { json } from 'express';
 const app = express();
 // const Sequelize = require('sequelize');
 
 // to user routes 
-const teacherRouter = require('./routes/teacher_router');
-const levelRouter = require('./routes/level_router');
-const studentRouter = require('./routes/student_router');
+import teacherRouter from './routes/teacher_router';
+import levelRouter from './routes/level_router';
+import studentRouter from './routes/student_router';
 
 // middlewares  
-app.use(express.json());
+app.use(json());
 app.use('/api', teacherRouter);
 app.use('/api', levelRouter);
 app.use('/api', studentRouter);
