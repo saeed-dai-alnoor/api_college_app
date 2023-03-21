@@ -5,17 +5,17 @@ const bcrypt = require('bcrypt');
 const loginStudent = async (req, res) => {
     const body = req.body;
     await StudentController.Student.findOne({
-        where: { phone: body.phone }
+        where: { studentId: body.studentId }
     })
         .then(async (student) => {
-            if (!student || isNaN(body.phone)) {
+            if (!student || isNaN(body.studentId)) {
                 res.send({
                     success: 0,
                     message: 'Invaild Id or phone'
                 });
             }
             else {
-                const match = await bcrypt.compare(body.password, student.password);
+                const match = await bcrypt.compare(body.phone, student.phone);
                 if (match) {
 
                     res.send({
@@ -113,7 +113,7 @@ const updateStudent = async (req, res) => {
         studentName: body.studentName,
         phone: body.phone,
         levelId: body.levelId
-    }, { where: { studentId: body.student } })
+    }, { where: { studentId: body.studentId } })
         .then((student) => {
             if (!student || isNaN(body.studentId)) {
                 res.send({
