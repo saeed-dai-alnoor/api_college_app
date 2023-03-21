@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const Sequelize = require('sequelize');
+// const Sequelize = require('sequelize');
 
 // to user routes 
 const teacherRouter = require('./routes/teacher_router');

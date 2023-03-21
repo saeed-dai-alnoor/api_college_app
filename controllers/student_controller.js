@@ -41,7 +41,7 @@ const loginStudent = async (req, res) => {
 //** (C) Create Operation
 // Create new student
 const createStudent = async (req, res) => {
-
+    const body = req.body;
     await StudentController.Student.create({
         studentId: body.studentId,
         studentName: body.studentName,
