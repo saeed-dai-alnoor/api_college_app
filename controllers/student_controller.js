@@ -1,4 +1,5 @@
 const StudentController = require('../models');
+const bcrypt = require('bcrypt');
 
 // ** Login student
 const loginStudent = async (req, res) => {
