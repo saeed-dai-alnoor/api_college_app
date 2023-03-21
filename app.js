@@ -5,11 +5,13 @@ const Sequelize = require('sequelize');
 // to user routes 
 const teacherRouter = require('./routes/teacher_router');
 const levelRouter = require('./routes/level_router');
+const studentRouter = require('./routes/student_router');
 
 // middlewares  
 app.use(express.json());
 app.use('/api', teacherRouter);
-app.use('/api', levelRouter)
+app.use('/api', levelRouter);
+app.use('/api', studentRouter);
 
 // PORT
 const PORT = process.env.PORT || 5000;
@@ -24,7 +26,7 @@ const PORT = process.env.PORT || 5000;
 //             console.log(`Server running on http://localhost:${PORT}/api`);
 //         });
 //     })
-// .catch ((error) => { console.error('Error connecting' + error); });
+//     .catch((error) => { console.error('Error connecting' + error); });
 // ** Online server ** //
 app.listen(PORT, () => {
     console.log(`App listening at http://localhost:${PORT}`);
