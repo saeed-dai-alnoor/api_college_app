@@ -1,11 +1,13 @@
 const StudentController = require('../models');
-const bcrypt = require('bcrypt');
 
 // ** Login student
 const loginStudent = async (req, res) => {
     const body = req.body;
     await StudentController.Student.findOne({
-        where: { studentId: body.studentId }
+        where: {
+            studentId: body.studentId,
+            phone: body.phone
+        }
     })
         .then(async (student) => {
             if (!student || isNaN(body.studentId)) {
@@ -15,20 +17,11 @@ const loginStudent = async (req, res) => {
                 });
             }
             else {
-                const match = await bcrypt.compare(body.phone, student.phone);
-                if (match) {
-
-                    res.send({
-                        success: 1,
-                        message: 'login successfuly done!',
-                        name: student.studentName,
-                    });
-                } else {
-                    res.send({
-                        success: 0,
-                        message: 'Invaild Id or phone'
-                    });
-                }
+                res.send({
+                    success: 1,
+                    message: 'login successfuly done!',
+                    name: student.studentName,
+                });
             }
         })
         .catch((error) => {
